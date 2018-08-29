@@ -1,0 +1,11 @@
+version: '3'
+services:
+  evvsfront:
+    image: template-front:v1
+    ports:
+      - "8080:8080"
+    environment:
+      NG_HOST: "0.0.0.0"
+      NG_PORT: "8080"
+      ZUUL_HOST: "192.168.84.100"
+      ZUUL_PORT: "5555"

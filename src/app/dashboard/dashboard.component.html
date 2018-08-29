@@ -1,0 +1,39 @@
+<div class="page">
+    <div class="container-fluid">
+    
+    <!-- corpo formulario de cadastro -->
+    <div class="page-content">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="row row-lg">
+
+              <div class="col-lg-6">
+                <!-- Example Bar -->
+                <div class="example-wrap m-md-0">
+                  <h4 class="example-title">Dealers</h4>
+                  <p>Vendas da ultima semana por dealer.</p>
+
+                  <div class="example">
+                      <p-chart type="pie" [data]="data"></p-chart>
+                  </div>
+                </div>
+                <!-- End Example Bar -->
+              </div>
+
+              <div class="col-lg-6">
+                  <!-- Example Bar -->
+                  <div class="example-wrap m-md-0">
+                    <h4 class="example-title">Total Mês</h4>
+                    <p>Total geral de vendas por mês.</p>
+                    <div class="example">
+                        <p-chart type="bar" [data]="data2"></p-chart>
+                    </div>
+                  </div>
+                  <!-- End Example Bar -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,46 @@
+<div class="site-menubar site-menubar-light">
+  <div class="site-menubar-body">
+    <div>
+      <div>
+
+        <div style="width: 80%; margin: 10px 0 0 10%; color: #000;">Perfil do Usuário</div>
+        <select [(ngModel)]="profile" name="profile" style="width: 80%; margin: 0 0 20px 10%;">
+          <option>ADMIN</option>
+          <option>DISTRIBUIDOR</option>
+          <option>SUBDISTRIBUIDOR</option>
+          <option>OPERADOR</option>
+        </select>
+
+        <ul class="site-menu" data-plugin="menu">
+
+          <li class="site-menu-item active">
+            <a [routerLink]="['/']">
+              <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+              <span class="site-menu-title">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="site-menu-item has-sub" *ngIf="profile == 'ADMIN'">
+            <a href="javascript:void(0)">
+              <i class="site-menu-icon fa-user" aria-hidden="true"></i>
+              <span class="site-menu-title">Usuários</span>
+              <span class="site-menu-arrow"></span>
+            </a>
+            <ul class="site-menu-sub">
+              <li class="site-menu-item">
+                <a class="animsition-link" [routerLink]="['/criar-usuario']">
+                  <span class="site-menu-title">Criar</span>
+                </a>
+              </li>
+              <li class="site-menu-item">
+                <a class="animsition-link" [routerLink]="['/listar-usuarios']">
+                  <span class="site-menu-title">Listar</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<!-- Page -->
+<div class="page">
+    <div class="container-fluid">
+    
+    <!-- topo formulario de cadastro -->
+    <div class="page-header">
+      <h1 class="page-title">Editar Usuário</h1>
+
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/listar-usuarios']">Usuários</a></li>
+          <li class="breadcrumb-item active">Editar</li>
+      </ol>
+    </div>
+    <!-- /topo formulario de cadastro -->
+
+    <!-- corpo formulario de cadastro -->
+    <div class="page-content">
+      <div class="panel">
+        <div class="panel-body container-fluid">
+          
+            <!-- Example Basic Form (Form grid) -->
+            <div class="example-wrap">
+                <h4 class="example-title">Dados do Usuário</h4>
+                <div class="example">
+
+                  <form autocomplete="off">
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label class="form-control-label" for="inputBasicFirstName">Nome do Usuário</label>
+                        <input type="text" class="form-control" id="inputBasicFirstName" name="inputFirstName"
+                          placeholder="Nome do Usuário" autocomplete="off" value="DialerTeste1"/>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label class="form-control-label" for="inputBasicLastName">E-mail</label>
+                        <input type="text" class="form-control" id="inputBasicLastName" name="inputLastName"
+                          placeholder="E-mail" autocomplete="off" value="dialer@webmail.com"/>
+                      </div>
+                    </div>
+                    
+                    <br>
+                    <h4 class="example-title">Segurança</h4>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                          <label class="form-control-label" for="inputBasicFirstName">Senha</label>
+                          <input type="password" class="form-control" id="inputBasicPassword" name="inputFirstName"
+                            placeholder="Senha" autocomplete="off" value="123456"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="form-control-label" for="inputBasicLastName">Confirmar Senha</label>
+                          <input type="password" class="form-control" id="inputBasicPasswordConfirm" name="inputLastName"
+                            placeholder="Confirmar Senha" autocomplete="off"  value="123456"/>
+                        </div>
+                    </div>
+
+                    <br>
+                    <h4 class="example-title">Informações Adicionais</h4>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                          <label class="form-control-label" for="inputBasicFirstName">Tipo de Usuário</label>
+                          <select class="form-control">
+                              <option>Admin</option>
+                              <option>Dealer</option>
+                              <option selected="selected">Admin</option>
+                              <option>Distribuidor</option>
+                              <option>IT Security</option>
+                              <option>Operdador</option>
+                              <option>PDV</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="form-control-label" for="inputBasicLastName">Login Remoto</label>
+                          <input type="text" class="form-control" id="inputBasicRemoteLogin" name="inputLastName"
+                            placeholder="Login Remoto" autocomplete="off" value="dialer-adm-1"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                          <label class="form-control-label" for="inputBasicFirstName">Idioma</label>
+                          <select class="form-control">
+                              <option>Espanhol</option>
+                              <option>Inglês</option>
+                              <option selected="selected">Português</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="form-control-label" for="inputBasicLastName">Data de Expiração</label>
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                  <i class="icon wb-calendar" aria-hidden="true"></i>
+                                </span>
+                              </div>
+                              <input type="text" class="form-control" data-plugin="datepicker" value="12/05/2019">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row" style="margin-top: 30px;">
+                        <div class="form-group col-md-4">
+                            <div class="form-group">
+                                <input type="checkbox" class="to-labelauty-icon" name="inputLableautyNoLabeledCheckbox"
+                                  data-plugin="labelauty" data-label="false" />
+                                <span>Bloqueio por inatividade</span>
+                              </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <div class="form-group">
+                                <input type="checkbox" class="to-labelauty-icon" name="inputLableautyNoLabeledCheckbox"
+                                  data-plugin="labelauty" data-label="false" />
+                                <span>Senha Expira</span>
+                              </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <div class="form-group">
+                                <input type="checkbox" class="to-labelauty-icon" name="inputLableautyNoLabeledCheckbox"
+                                  data-plugin="labelauty" data-label="false" />
+                                <span>Autenticação Externa</span>
+                              </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputBasicEmail">Nome</label>
+                      <input type="email" class="form-control" id="inputBasicEmail" name="inputEmail"
+                        placeholder="Nome" autocomplete="off" value="Dialer Teste 1"/>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputBasicPassword">Endereço</label>
+                      <input type="text" class="form-control" id="inputBasicAddress" name="inputPassword"
+                        placeholder="Endereço" autocomplete="off"  value="Rua das Figueiras 2100"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" for="inputBasicPassword">Área</label>
+                        <input type="text" class="form-control" id="inputBasicArea" name="inputPassword"
+                          placeholder="Área" autocomplete="off" value="Santo André"/>
+                      </div>
+
+                      <div class="form-group">
+                          <label class="form-control-label" for="inputBasicPassword">Telefone</label>
+                          <input type="text" class="form-control" id="inputBasicPhone" name="inputPassword"
+                            placeholder="Telefone" autocomplete="off" value="(11) 55555-1234"/>
+                        </div>
+                    
+                    <div class="form-group">
+                      <a href="listar-usuarios.html">
+                        <button type="button" class="btn btn-primary">Salvar</button>
+                      </a>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+              <!-- End Example Basic Form (Form grid) -->
+
+        </div>
+      </div>
+    </div>
+    <!-- /corpo formulario de cadastro -->
+
+    </div>
+  </div>
+
+  <!-- End Page -->

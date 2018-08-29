@@ -1,0 +1,162 @@
+<!-- Page -->
+<div class="page">
+  <div class="container-fluid">
+
+    <!-- topo formulario de cadastro -->
+    <div class="page-header">
+      <h1 class="page-title">Criar Usuário</h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a [routerLink]="['/']">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a [routerLink]="['/listar-usuarios']">Usuários</a>
+        </li>
+        <li class="breadcrumb-item active">Criar Novo</li>
+      </ol>
+    </div>
+    <!-- /topo formulario de cadastro -->
+
+    <!-- corpo formulario de cadastro -->
+    <div class="page-content">
+      <div class="panel">
+        <div class="panel-body container-fluid">
+
+          <!-- Example Basic Form (Form grid) -->
+          <form autocomplete="off" #form="ngForm" (ngSubmit)="create()">
+
+            <div class="example-wrap">
+              <h4 class="example-title">DADOS DO USUÁRIO</h4>
+              <div class="example">
+                <div class="ui-g">
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Login</label>                
+                    <input [(ngModel)]="user.login" name="login" pInputText id="login" [pattern]="logNamePattern" #uname="ngModel"/>
+                    <div style="margin-top:10px;">
+                      <p-message *ngIf="uname.errors?.pattern" severity="error" text="Nome de usuário inválido!"></p-message>                    
+                    </div>
+                  </div>
+
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>E-mail</label>
+                    <input type="email" [(ngModel)]="user.email" name="email" pInputText id="email" placeholder="E-mail" required />
+                  </div>
+                </div>
+              </div>
+
+
+              <br>
+              <h4 class="example-title">SEGURANÇA</h4>
+              <div class="example">
+                <div class="ui-g">
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Senha</label>
+                    <input type="password" name="password" [(ngModel)]="user.password" pPassword id="password" placeholder="Senha" />
+                  </div>
+
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Confirmar Senha</label>
+                    <input type="password" name="confirm_password" [(ngModel)]="user.confirm_password" pPassword id="confirm_password" placeholder="Confirmar Senha"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <br>
+              <h4 class="example-title">INFORMAÇÕES ADICIONAIS</h4>
+              <div class="example">
+                <div class="ui-g">
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Tipo de Usuário</label>
+                    <p-dropdown id="role" [(ngModel)]="user.role" optionLabel="description" name="role" [autoWidth]="false" placeholder="Selecione..." [options]="tipo_usuario" required></p-dropdown>
+                  </div>
+
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Login Remoto</label>
+                    <input pInputText [(ngModel)]="user.login_remoto" name="login_remoto" id="login_remoto" placeholder="Login Remoto" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="ui-g">
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Data de Expiração</label>
+                    <p-calendar name="expirationDate" [showIcon]="true"></p-calendar>
+                  </div>
+
+                  <div class="ui-g-6 ui-sm-12 ui-fluid"></div>
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="ui-g" style="margin-bottom:10px">
+                  <div class="ui-g-4 ui-sm-12 ui-fluid campoSelecao">
+                    <p-checkbox [(ngModel)]="user.bloqueio" name="group1" value="Bloqueio por inatividade" label="Bloqueio por inatividade" [(ngModel)]="opcoesBloqueio"
+                      inputId="bi"></p-checkbox>
+                  </div>
+
+                  <div class="ui-g-4 ui-sm-12 ui-fluid campoSelecao">
+                    <p-checkbox [(ngModel)]="user.expiracao" name="group1" value="Senha Expira" label="Senha Expira" [(ngModel)]="opcoesBloqueio"
+                      inputId="se"></p-checkbox>
+                  </div>
+
+                  <div class="ui-g-4 ui-sm-12 ui-fluid campoSelecao">
+                    <p-checkbox [(ngModel)]="user.autenticacao" name="group1" value="Autenticação Externa" label="Autenticação Externa" [(ngModel)]="opcoesBloqueio"
+                      inputId="ae"></p-checkbox>
+                  </div>
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="ui-g">
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Nome</label>
+                    <input pInputText [(ngModel)]="user.name" name="nome" id="nome" placeholder="Nome" />
+                  </div>
+
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Endereço</label>
+                    <input pInputText [(ngModel)]="user.address" name="address" id="address" placeholder="Endereço" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="ui-g">
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>CEP</label>
+                    <input pInputText [(ngModel)]="user.zipCode" name="zipCode" id="zipCode" placeholder="Área" />
+                  </div>
+
+                  <div class="ui-g-6 ui-sm-12 ui-fluid">
+                    <label>Telefone</label>
+                    <input pInputText [(ngModel)]="user.phone" name="phone" id="phone" placeholder="Telefone" />
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="example">
+                <div class="ui-g">
+                  <div class="ui-g-2 ui-sm-12 ui-fluid">
+                    <button type="submit" [disabled]="!form.valid" class="btn btn-block btn-primary">Salvar</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </form>
+          <!-- End Example Basic Form (Form grid) -->
+
+        </div>
+      </div>
+    </div>
+    <!-- /corpo formulario de cadastro -->
+
+  </div>
+</div>
+
+<!-- End Page -->

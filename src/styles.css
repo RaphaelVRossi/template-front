@@ -1,0 +1,20 @@
+@import '~ngx-toastr/toastr.css';
+
+/* You can add global styles to this file, and also import other style files */
+.campoSelecao .ui-chkbox-label{
+    margin: 3px 0 0 10px !important;
+}
+
+.ui-picklist-buttons{
+    display: none !important;
+}
+
+.ui-picklist-listwrapper{
+    width: 48% !important;
+}
+
+.ui-picklist>div{
+    float: left;
+    margin: 0 2% 0 0;
+}
+

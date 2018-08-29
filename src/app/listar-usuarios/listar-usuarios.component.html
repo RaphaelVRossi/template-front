@@ -1,0 +1,72 @@
+<!-- Page -->
+<div class="page">
+    <div class="page-content-disable container-fluid">
+    
+    <!-- topo formulario de cadastro -->
+    <div class="page-header">
+      <h1 class="page-title">Listar Usuários</h1>
+
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+          <li class="breadcrumb-item"><a href="javascript:void(0)">Usuários</a></li>
+          <li class="breadcrumb-item active">Lista</li>
+      </ol>
+    </div>
+    <!-- /topo formulario de cadastro -->
+
+    <!-- corpo formulario de cadastro -->
+    <div class="page-content">
+     
+      <!-- Panel Table Add Row -->
+      <div class="panel">
+        <div class="panel-body">
+
+          <!-- popup excluir registro -->
+          <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425" #cd>
+              <p-footer>
+                  <button style="padding-left: 1.2em;" type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+                  <button style="padding-left: 1.2em;" type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+              </p-footer>
+          </p-confirmDialog>
+          <!-- popup excluir registro -->
+
+          <!-- inicio da tabela -->
+          <p-table [value]="registros" [paginator]="true" [rows]="10" sortMode="multiple">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th class="indiceTabela">Nome do Usuário</th>
+                    <th class="indiceTabela">Perfil do Usuário</th>
+                    <th class="indiceTabela">E-mail</th>
+                    <th class="indiceTabela">Status</th>
+                    <th class="indiceTabela">Ações</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-registro>
+                <tr>
+                  <td>{{registro.login}}</td>
+                  <td>{{registro.role.description}}</td>
+                    <td>{{registro.email}}</td>
+                    <td style="text-align: center;"><button pButton type="button" (click)="mudarStatus(registro.id, registro.statusId)" label="{{registro.statusId == 1 ? 'Ativo' : 'Desativado'}}"
+                        class="{{registro.statusId == 1 ? 'ui-button-info' : 'ui-button-danger'}}"></button></td>
+                    <td>
+                      <i class="pi pi-pencil" style="font-size: 1.5em; color: #999; margin-right: 8px;"></i>
+                      <a (click)="excluir(registro.id, registro.login)">
+                            <i class="pi pi-trash" style="font-size: 1.5em; color: #999; margin-right: 8px; cursor: pointer;"></i>
+                        </a>
+                      <i class="pi pi-ban" style="font-size: 1.5em; color: #999;"></i>
+                    </td>
+                </tr>
+            </ng-template>  
+          </p-table>
+          <!-- /fim da tabela -->
+
+        </div>
+      </div>
+      <!-- End Panel Table Add Row -->
+
+    </div>
+    <!-- /corpo formulario de cadastro -->
+
+    </div>
+</div>
+<!-- End Page -->
